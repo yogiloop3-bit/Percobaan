@@ -50,4 +50,17 @@ git push -u origin main
 ## Tips Tambahan
 
 *   **Update Konten**: Jika ingin mengubah teks atau warna di masa depan, cukup edit file di komputer Anda, lalu upload ulang (atau `git push`) file yang berubah.
-*   **Custom Domain**: Jika Anda punya domain sendiri (misal `www.yogi.com`), Anda bisa mengaturnya di menu Settings > Pages > Custom domain.
+
+## Menggunakan Custom Domain (Opsional)
+
+Jika Anda ingin mengubah alamat dari `yogi.github.io` menjadi domain sendiri seperti `www.pijatpaktoyibi.com`:
+
+1.  **Beli Domain**: Anda harus membeli domain terlebih dahulu dari penyedia domain (seperti Niagahoster, GoDaddy, dll).
+2.  **Format Domain**: Pastikan domain memiliki akhiran (ekstensi) seperti `.com`, `.id`, `.net`.
+    *   ❌ Salah: `pijatpaktoyibi`
+    *   ✅ Benar: `www.pijatpaktoyibi.com` atau `pijatpaktoyibi.com`
+3.  **Setting di GitHub**:
+    *   Masuk ke **Settings > Pages**.
+    *   Di kolom **Custom domain**, masukkan nama domain lengkap Anda.
+    *   Klik **Save**.
+    *   *Catatan*: Jika muncul error "domain not properly formatted", itu berarti Anda lupa menuliskan akhiran domain (seperti `.com`).
