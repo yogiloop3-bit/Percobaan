@@ -266,8 +266,20 @@ footer {
         font-size: 2.2rem;
     }
 
+    nav {
+        flex-direction: column;
+    }
+
     .nav-links {
-        display: none; /* Simplification for mobile, usually needs JS toggle */
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
     }
 
     .logo {

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Configuration: Change this to your GitHub username
-    const githubUsername = 'octocat';
+    const githubUsername = 'Yogi';
     const reposContainer = document.getElementById('repos-container');
 
     // Fetch repositories from GitHub API
