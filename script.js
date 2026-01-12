@@ -2,6 +2,40 @@ document.addEventListener('DOMContentLoaded', () => {
     // Configuration: Change this to your GitHub username
     const githubUsername = 'Yogi';
     const reposContainer = document.getElementById('repos-container');
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const icon = themeToggle ? themeToggle.querySelector('i') : null;
+
+    // Check for saved user preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        if (icon) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+    }
+
+    // Toggle theme on click
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDarkMode = body.classList.contains('dark-mode');
+
+            // Update icon
+            if (icon) {
+                if (isDarkMode) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                    localStorage.setItem('theme', 'light');
+                }
+            }
+        });
+    }
 
     // Fetch repositories from GitHub API
     fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=6`)

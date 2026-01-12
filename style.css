@@ -1,12 +1,45 @@
 :root {
-    --primary-color: #24292e; /* GitHub Dark */
+    /* Base Colors */
+    --primary-color: #24292e; /* GitHub Dark Header */
     --secondary-color: #0366d6; /* GitHub Blue */
     --accent-color: #2ea44f; /* GitHub Green */
-    --text-color: #333;
+
+    /* Semantic Colors */
+    --text-color: #24292e;
+    --text-muted: #586069;
     --bg-color: #ffffff;
     --bg-light: #f6f8fa;
-    --white: #ffffff;
+    --card-bg: #ffffff;
+    --border-color: #e1e4e8;
+
+    --header-text: #ffffff;
+    --btn-sec-bg: #ffffff;
+    --btn-sec-text: #24292e;
+
+    --hero-start: #f6f8fa;
+    --hero-end: #e1e4e8;
+
     --transition: all 0.3s ease;
+}
+
+body.dark-mode {
+    --primary-color: #161b22;
+    --secondary-color: #58a6ff;
+    --accent-color: #238636;
+
+    --text-color: #c9d1d9;
+    --text-muted: #8b949e;
+    --bg-color: #0d1117;
+    --bg-light: #010409;
+    --card-bg: #161b22;
+    --border-color: #30363d;
+
+    --header-text: #f0f6fc;
+    --btn-sec-bg: #21262d;
+    --btn-sec-text: #c9d1d9;
+
+    --hero-start: #0d1117;
+    --hero-end: #161b22;
 }
 
 * {
@@ -20,6 +53,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -31,12 +65,13 @@ body {
 /* Header & Nav */
 header {
     background-color: var(--primary-color);
-    color: var(--white);
+    color: var(--header-text);
     padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
 }
 
 nav {
@@ -53,6 +88,7 @@ nav {
 .nav-links {
     list-style: none;
     display: flex;
+    align-items: center;
 }
 
 .nav-links li {
@@ -60,15 +96,31 @@ nav {
 }
 
 .nav-links a {
-    color: var(--white);
+    color: var(--header-text);
     text-decoration: none;
     font-weight: 500;
     transition: var(--transition);
 }
 
 .nav-links a:hover {
-    color: var(--secondary-color); /* Note: might need better contrast on dark bg */
+    color: var(--secondary-color);
     opacity: 0.8;
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+    background: none;
+    border: none;
+    color: var(--header-text);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: var(--transition);
+}
+
+#theme-toggle:hover {
+    color: var(--secondary-color);
+    transform: rotate(15deg);
 }
 
 /* Hero Section */
@@ -78,14 +130,19 @@ nav {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(135deg, #f6f8fa 0%, #e1e4e8 100%);
+    background: linear-gradient(135deg, var(--hero-start) 0%, var(--hero-end) 100%);
+    transition: background 0.3s ease;
 }
 
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    color: var(--primary-color);
+    color: var(--text-color); /* Was primary-color, but text-color is better for contrast in dark mode? Or use a specific one? */
 }
+
+/* In light mode, primary is dark (#24292e). In dark mode, primary is dark (#161b22) which is invisible on dark bg. */
+/* So hero h1 needs to be contrasted. */
+/* Let's use text-color which swaps correctly. */
 
 .highlight {
     color: var(--secondary-color);
@@ -94,7 +151,7 @@ nav {
 .hero p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
-    color: #586069;
+    color: var(--text-muted);
 }
 
 .btn {
@@ -105,27 +162,28 @@ nav {
     font-weight: 600;
     transition: var(--transition);
     margin: 0 10px;
+    cursor: pointer;
 }
 
 .btn.primary {
     background-color: var(--accent-color);
-    color: var(--white);
+    color: #ffffff; /* Always white text for primary btn */
     border: 1px solid rgba(27,31,35,0.15);
 }
 
 .btn.primary:hover {
-    background-color: #2c974b;
+    filter: brightness(1.1);
     transform: translateY(-2px);
 }
 
 .btn.secondary {
-    background-color: var(--white);
-    color: var(--text-color);
-    border: 1px solid rgba(27,31,35,0.15);
+    background-color: var(--btn-sec-bg);
+    color: var(--btn-sec-text);
+    border: 1px solid var(--border-color);
 }
 
 .btn.secondary:hover {
-    background-color: var(--bg-light);
+    background-color: var(--bg-light); /* Might need adjustment */
     transform: translateY(-2px);
 }
 
@@ -136,18 +194,19 @@ nav {
 
 .bg-light {
     background-color: var(--bg-light);
+    transition: background-color 0.3s ease;
 }
 
 .section-title {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: var(--primary-color);
+    color: var(--text-color);
 }
 
 .section-subtitle {
     text-align: center;
-    color: #586069;
+    color: var(--text-muted);
     margin-bottom: 3rem;
 }
 
@@ -167,10 +226,10 @@ nav {
 }
 
 .repo-card {
-    background: var(--white);
+    background: var(--card-bg);
     padding: 25px;
     border-radius: 6px;
-    border: 1px solid #e1e4e8;
+    border: 1px solid var(--border-color);
     transition: var(--transition);
     display: flex;
     flex-direction: column;
@@ -179,7 +238,7 @@ nav {
 .repo-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    border-color: #bbb;
+    border-color: var(--secondary-color);
 }
 
 .repo-name {
@@ -198,7 +257,7 @@ nav {
 }
 
 .repo-desc {
-    color: #586069;
+    color: var(--text-muted);
     font-size: 0.9rem;
     margin-bottom: 20px;
     flex-grow: 1;
@@ -208,7 +267,7 @@ nav {
     display: flex;
     justify-content: space-between;
     font-size: 0.85rem;
-    color: #586069;
+    color: var(--text-muted);
 }
 
 .repo-language {
@@ -254,7 +313,7 @@ nav {
 
 footer {
     background-color: var(--primary-color);
-    color: var(--white);
+    color: var(--header-text);
     text-align: center;
     padding: 20px 0;
     margin-top: 0;
