@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <a href="${repo.html_url}" target="_blank">${repo.name}</a>
                     </div>
                     <div class="repo-desc">
-                        ${repo.description ? repo.description : 'No description available.'}
+                        ${repo.description ? repo.description : (repo.name === 'Percobaan' ? 'My personal portfolio website source code.' : 'No description available.')}
                     </div>
                     <div class="repo-meta">
                         <div class="repo-language">

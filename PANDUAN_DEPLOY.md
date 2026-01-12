@@ -1,66 +1,40 @@
-# Panduan Meng-online-kan Website Portfolio
+# Panduan Deployment ke GitHub Pages
 
-Berikut adalah langkah-langkah mudah untuk membuat website portfolio Anda bisa diakses oleh siapa saja di internet menggunakan **GitHub Pages** (Gratis).
+File ini berisi panduan langkah demi langkah untuk men-deploy website portofolio ini ke GitHub Pages.
 
-## Cara 1: Upload Lewat Website GitHub (Paling Mudah)
+## 1. Persiapan Repository
 
-Jika Anda belum menginstall Git di komputer, gunakan cara ini.
+Pastikan semua file (`index.html`, `style.css`, `script.js`) sudah ada di dalam repository GitHub Anda.
 
-1.  **Login ke GitHub**: Buka [github.com](https://github.com) dan login.
-2.  **Buat Repository Baru**:
-    *   Klik tanda `+` di pojok kanan atas, lalu pilih **New repository**.
-    *   **Repository name**: Isi dengan `portfolio` atau nama lain yang Anda suka.
-        *   *Tips*: Jika Anda menamakannya `yogi.github.io` (sesuai username Anda), website akan tampil di alamat `https://yogi.github.io`. Jika namanya `portfolio`, alamatnya jadi `https://yogi.github.io/portfolio`.
-    *   Pilih **Public**.
-    *   Klik **Create repository**.
-3.  **Upload File**:
-    *   Di halaman repository yang baru dibuat, klik link **uploading an existing file**.
-    *   Drag & drop (seret) semua file proyek ini (`index.html`, `style.css`, `script.js`, dll) ke kotak upload.
-    *   Tunggu proses upload selesai.
-    *   Di kotak "Commit changes" di bawah, ketik pesan (misal: "Upload pertama").
-    *   Klik tombol hijau **Commit changes**.
-4.  **Aktifkan Website**:
-    *   Klik tab **Settings** di menu atas repository.
-    *   Di menu sebelah kiri, klik **Pages**.
-    *   Di bagian **Build and deployment** -> **Branch**, pilih `main` (atau `master`) lalu folder `/ (root)`.
-    *   Klik **Save**.
-5.  **Selesai!**
-    *   Tunggu sekitar 1-2 menit. Refresh halaman Settings > Pages tersebut.
-    *   Anda akan melihat pesan: "Your site is live at..." dengan link website Anda.
+## 2. Mengaktifkan GitHub Pages
 
-## Cara 2: Menggunakan Git Command Line (Untuk Developer)
+1.  Buka repository Anda di GitHub (https://github.com/yogiloop3-bit/Percobaan).
+2.  Klik tab **Settings** (Pengaturan).
+3.  Di menu sebelah kiri, cari dan klik bagian **Pages**.
+4.  Pada bagian **Build and deployment**:
+    *   **Source**: Pilih `Deploy from a branch`.
+    *   **Branch**: Pilih `main` (atau `master` jika itu branch utama Anda) dan folder `/ (root)`.
+    *   Klik tombol **Save**.
 
-Jika Anda sudah biasa menggunakan terminal/command prompt.
+## 3. Menunggu Proses Build
 
-1.  Buat repository baru di GitHub.
-2.  Buka terminal di folder proyek ini.
-3.  Jalankan perintah berikut (ganti `USERNAME` dan `REPO` sesuai milik Anda):
+Setelah Anda klik Save, GitHub akan memulai proses deployment.
+*   Tunggu beberapa menit (biasanya 1-3 menit).
+*   Refresh halaman Settings > Pages.
+*   Anda akan melihat pesan sukses: "Your site is live at..." beserta link website Anda.
 
-```bash
-git init
-git add .
-git commit -m "Initial deploy"
-git branch -M main
-git remote add origin https://github.com/USERNAME/REPO.git
-git push -u origin main
-```
+## 4. Troubleshooting Custom Domain (Jika Menggunakan)
 
-4.  Ikuti langkah "Aktifkan Website" (Langkah ke-4 di Cara 1) di atas.
+Jika Anda ingin menggunakan custom domain (seperti `pijatpaktoyibi.com`), pastikan Anda telah melakukan konfigurasi DNS:
 
-## Tips Tambahan
+*   **CNAME Record**: Di penyedia domain Anda, buat CNAME record yang mengarah ke `yogiloop3-bit.github.io`.
+*   **Di GitHub**: Masukkan nama domain Anda di kolom **Custom domain** pada halaman Settings > Pages.
+*   **HTTPS**: Centang "Enforce HTTPS" untuk keamanan.
 
-*   **Update Konten**: Jika ingin mengubah teks atau warna di masa depan, cukup edit file di komputer Anda, lalu upload ulang (atau `git push`) file yang berubah.
+Jika link GitHub Pages Anda masih format default (`yogiloop3-bit.github.io/Percobaan`), itu normal jika Anda belum mensetting custom domain.
 
-## Menggunakan Custom Domain (Opsional)
+## 5. Memeriksa Website
 
-Jika Anda ingin mengubah alamat dari `yogi.github.io` menjadi domain sendiri seperti `www.pijatpaktoyibi.com`:
+Klik link yang diberikan oleh GitHub Pages untuk melihat website Anda secara live.
 
-1.  **Beli Domain**: Anda harus membeli domain terlebih dahulu dari penyedia domain (seperti Niagahoster, GoDaddy, dll).
-2.  **Format Domain**: Pastikan domain memiliki akhiran (ekstensi) seperti `.com`, `.id`, `.net`.
-    *   ❌ Salah: `pijatpaktoyibi`
-    *   ✅ Benar: `www.pijatpaktoyibi.com` atau `pijatpaktoyibi.com`
-3.  **Setting di GitHub**:
-    *   Masuk ke **Settings > Pages**.
-    *   Di kolom **Custom domain**, masukkan nama domain lengkap Anda.
-    *   Klik **Save**.
-    *   *Catatan*: Jika muncul error "domain not properly formatted", itu berarti Anda lupa menuliskan akhiran domain (seperti `.com`).
+Selamat! Portofolio Anda sekarang online.

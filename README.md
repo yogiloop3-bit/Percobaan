@@ -15,7 +15,7 @@ To make this website live on the internet:
 ### 2. Customization
 
 #### Change Username
-The website currently fetches repositories for user **Yogi**.
+The website currently fetches repositories for user **yogiloop3-bit**.
 To change this in the future, open `script.js` and edit line 3:
 ```javascript
 const githubUsername = 'YOUR_NEW_USERNAME';
