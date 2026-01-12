@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Configuration: Change this to your GitHub username
-    const githubUsername = 'Yogi';
+    const githubUsername = 'yogiloop3-bit';
     const reposContainer = document.getElementById('repos-container');
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
