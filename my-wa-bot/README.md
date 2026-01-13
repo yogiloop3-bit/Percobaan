@@ -4,7 +4,14 @@ A simple WhatsApp bot using whatsapp-web.js.
 
 ## Installation
 
-1. Install dependencies:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yogiloop3-bit/Bot-wa-triall.git
+   cd Bot-wa-triall
+   # cd my-wa-bot (if the bot code is in a subdirectory)
+   ```
+
+2. Install dependencies:
    ```bash
    npm install
    ```
