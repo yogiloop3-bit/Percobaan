@@ -24,10 +24,9 @@ Anda dapat menjalankan bot ini di Android menggunakan aplikasi **Termux**.
 2.  **Clone Repository (Ambil Kode Bot)**
     Jika kode bot sudah ada di GitHub, clone dengan perintah:
     ```bash
-    git clone https://github.com/USERNAME/REPO_ANDA.git
-    cd REPO_ANDA/my-wa-bot
+    git clone https://github.com/yogiloop3-bit/Percobaan.git
+    cd Percobaan/my-wa-bot
     ```
-    *Ganti URL di atas dengan URL repository Anda.*
 
     Atau jika Anda menyalin file secara manual ke penyimpanan internal HP:
     ```bash
